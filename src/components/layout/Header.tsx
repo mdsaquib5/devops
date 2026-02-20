@@ -11,9 +11,15 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+    const [mounted, setMounted] = useState(false);
 
     // Media query hook - drawer activates below 1400px
     const isMobile = useMediaQuery({ maxWidth: 1399 });
+
+    // Wait for client mount to avoid hydration mismatch
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -133,7 +139,7 @@ const Header = () => {
 
                         {/* Action Buttons */}
                         <div className="user-btns">
-                            {!isMobile && (
+                            {(!mounted || !isMobile) && (
                                 <>
                                     <Link href="/" className="btn primary-btn">
                                         Download Syllabus <BsDownload />
@@ -145,7 +151,7 @@ const Header = () => {
                             )}
 
                             {/* Drawer Toggle (< 1400px) */}
-                            {isMobile && (
+                            {mounted && isMobile && (
                                 <button
                                     className={`drawer-toggle ${drawerOpen ? 'active' : ''}`}
                                     onClick={toggleDrawer}
@@ -164,7 +170,7 @@ const Header = () => {
             </header>
 
             {/* Drawer Overlay */}
-            {isMobile && (
+            {mounted && isMobile && (
                 <>
                     <div
                         className={`drawer-overlay ${drawerOpen ? 'active' : ''}`}

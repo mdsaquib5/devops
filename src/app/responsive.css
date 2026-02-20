@@ -15,6 +15,7 @@
    HEADER DESKTOP MENU (>= 1400px)
    ===================================================================== */
 @media (min-width: 1400px) {
+
     /* Show desktop menu, hide drawer */
     .menus {
         display: block;
@@ -63,7 +64,7 @@
         border-top: 2px solid var(--secondary);
     }
 
-    .dropdown:hover > .dropdown-item {
+    .dropdown:hover>.dropdown-item {
         transform: scale(1);
         opacity: 1;
         visibility: visible;
@@ -87,6 +88,7 @@
    HEADER DRAWER MENU (< 1400px)
    ===================================================================== */
 @media (max-width: 1399.98px) {
+
     /* Hide desktop menu, show drawer */
     .menus nav {
         display: none;
@@ -229,12 +231,12 @@
         list-style: none;
     }
 
-    .drawer-nav > ul > li {
+    .drawer-nav>ul>li {
         border-bottom: 1px solid #f0f8f7;
     }
 
-    .drawer-nav > ul > li > a,
-    .drawer-nav > ul > li > button {
+    .drawer-nav>ul>li>a,
+    .drawer-nav>ul>li>button {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -251,14 +253,14 @@
         transition: all 0.3s ease;
     }
 
-    .drawer-nav > ul > li > a:hover,
-    .drawer-nav > ul > li > button:hover {
+    .drawer-nav>ul>li>a:hover,
+    .drawer-nav>ul>li>button:hover {
         background: #f5faf9;
         color: var(--primary);
         padding-left: 32px;
     }
 
-    .drawer-nav > ul > li > button.active {
+    .drawer-nav>ul>li>button.active {
         background: #f5faf9;
         color: var(--primary);
     }
@@ -340,7 +342,7 @@
         justify-content: center;
     }
 
-    header{
+    header {
         padding: 10px 0;
     }
 }
@@ -350,6 +352,7 @@
    XXX-LARGE DEVICES - 1600px to 1799px
    ===================================================================== */
 @media (min-width: 1600px) and (max-width: 1799.98px) {
+
     /* Fine-tuning for very large screens */
     .section-sub-heading {
         font-size: 42px;
@@ -389,6 +392,7 @@
    X-LARGE DEVICES - 1200px to 1399px
    ===================================================================== */
 @media (min-width: 1200px) and (max-width: 1399.98px) {
+
     /* SECTION TITLES */
     .section-sub-heading {
         font-size: 38px;
@@ -423,6 +427,7 @@
    LARGE DESKTOP - 992px to 1199px
    ===================================================================== */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
     /* SECTION TITLES */
     .section-sub-heading {
         font-size: 36px;
@@ -534,6 +539,7 @@
    MEDIUM DEVICES (TABLET) - 768px to 991px
    ===================================================================== */
 @media (min-width: 768px) and (max-width: 991.98px) {
+
     /* GLOBAL SECTION STYLES */
     section {
         padding-block: 60px;
@@ -752,6 +758,7 @@
    SMALL DEVICES (MOBILE LANDSCAPE) - 576px to 767px
    ===================================================================== */
 @media (min-width: 576px) and (max-width: 767.98px) {
+
     /* GLOBAL SECTION STYLES */
     section {
         padding-block: 50px;
@@ -987,6 +994,7 @@
    EXTRA SMALL DEVICES - 375px to 575px
    ===================================================================== */
 @media (min-width: 375px) and (max-width: 575.98px) {
+
     /* GLOBAL SECTION STYLES */
     section {
         padding-block: 40px;
@@ -1250,12 +1258,13 @@
         font-size: 14px;
     }
 
-    .pf-grid{
+    .pf-grid {
         display: flex;
         flex-direction: column;
     }
 
-    .pf-step-num--ghost, .pf-step-num{
+    .pf-step-num--ghost,
+    .pf-step-num {
         font-size: 40px;
     }
 }
@@ -1265,6 +1274,7 @@
    TINY DEVICES - Below 375px
    ===================================================================== */
 @media (max-width: 374.98px) {
+
     /* GLOBAL SECTION STYLES */
     section {
         padding-block: 35px;
@@ -1534,63 +1544,63 @@
    HERO SECTION
    ===================================================================== */
 @media (max-width: 900px) {
-  .hr-content {
-    flex-direction: column;
-    gap: 40px;
-  }
+    .hr-content {
+        flex-direction: column;
+        gap: 40px;
+    }
 
-  .hr-form-wrapper {
-    width: 100%;
-  }
+    .hr-form-wrapper {
+        width: 100%;
+    }
 
-  .hr-heading {
-    font-size: 2rem;
-  }
+    .hr-heading {
+        font-size: 2rem;
+    }
 
-  .hr-stats-bar {
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 24px 20px;
-  }
+    .hr-stats-bar {
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 24px 20px;
+    }
 
-  .hr-stat {
-    min-width: 120px;
-  }
+    .hr-stat {
+        min-width: 120px;
+    }
 }
 
 @media (max-width: 480px) {
-  .hr-section {
-    padding: 50px 16px 0;
-  }
+    .hr-section {
+        padding: 50px 16px 0;
+    }
 
-  .hr-heading {
-    font-size: 1.6rem;
-  }
+    .hr-heading {
+        font-size: 1.6rem;
+    }
 
-  .hr-subtitle {
-    font-size: 1.1rem;
-  }
+    .hr-subtitle {
+        font-size: 1.1rem;
+    }
 
-  .hr-form {
-    padding: 28px 20px;
-  }
+    .hr-form {
+        padding: 28px 20px;
+    }
 
-  .hr-phone-row {
-    flex-direction: column;
-    gap: 16px;
-  }
+    .hr-phone-row {
+        flex-direction: column;
+        gap: 16px;
+    }
 
-  .hr-code {
-    width: 100%;
-  }
+    .hr-code {
+        width: 100%;
+    }
 
-  .hr-stats-bar {
-    gap: 20px;
-  }
+    .hr-stats-bar {
+        gap: 20px;
+    }
 
-  .hr-stat-value {
-    font-size: 1.5rem;
-  }
+    .hr-stat-value {
+        font-size: 1.5rem;
+    }
 }
 
 
@@ -3566,17 +3576,22 @@
     .lg-country-code {
         width: 100%;
     }
+}
 
-    .agreement-grid, .ca-grid, .dm-insights-grid{
+@media (max-width: 576px) {
+
+    .agreement-grid,
+    .ca-grid,
+    .dm-insights-grid {
         grid-template-columns: auto;
     }
 
-    .kf-grid{
+    .kf-grid {
         display: flex;
         flex-direction: column;
     }
 
-    .agreement-id{
+    .agreement-id {
         font-size: 40px;
     }
 }
