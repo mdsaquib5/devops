@@ -4,7 +4,6 @@ import Demand from "@/components/ui/Demand";
 import Course from "@/components/ui/Course";
 import Careers from "@/components/ui/Careers";
 import Agreement from "@/components/ui/Agreement";
-import Test from "@/components/ui/Test";
 import Services from "@/components/ui/Services";
 import Traning from "@/components/ui/Traning";
 import Skills from "@/components/ui/Skills";
@@ -43,7 +42,6 @@ export default function Home() {
             <Trust />
             <Testimonial />
             <LeadGeneration />
-            <Test />
         </>
     );
 }

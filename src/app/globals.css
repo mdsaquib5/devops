@@ -29,7 +29,6 @@ a {
 
 @media (prefers-color-scheme: dark) {
     html {
-        /* color-scheme: dark; */
         color: inherit;
     }
 }
@@ -77,7 +76,6 @@ section {
 .section-sub-heading {
     font-size: 40px;
     font-weight: 700;
-    /* color: var(--primary); */
 }
 
 .section-sub-heading span {
@@ -303,8 +301,6 @@ header {
         transform: translateY(0);
     }
 }
-
-/* Menu styles moved to responsive.css for proper breakpoint handling */
 
 /* Hero section starts */
 .hr-section {
@@ -636,14 +632,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     left: -60px;
 }
 
-/* .kf-heading {
-    color: var(--primary);
-} */
-
-/* .kf-subtext {
-    color: #6b8080;
-} */
-
 .kf-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -857,7 +845,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .dm-section {
     background:
         linear-gradient(135deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.78) 100%),
-        url('/images/demand-bg.png') center / cover fixed no-repeat;
+        url('/images/demand-bg.webp') center / cover fixed no-repeat;
     position: relative;
     overflow: hidden;
 }
@@ -1035,14 +1023,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .dm-link:hover {
     opacity: 0.7;
 }
-
-/* .dm-section .section-title p {
-    color: #ffffffa6;
-}
-
-.dm-section .section-sub-heading {
-    color: #fff;
-} */
 
 /* Courses section css starts */
 .cr-section {
@@ -1538,14 +1518,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     right: -100px;
 }
 
-/* .agreement-bg .section-sub-heading {
-    color: #fff;
-}
-
-.agreement-bg .section-title p {
-    color: rgba(255, 255, 255, 0.65);
-} */
-
 .agreement-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1974,14 +1946,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     display: flex;
     flex-direction: column;
 }
-
-/* .tp-section .section-title .section-sub-heading {
-    color: #fff;
-}
-
-.tp-section .section-title p {
-    color: #ffffffa6;
-} */
 
 .tp-line {
     position: absolute;
@@ -2763,15 +2727,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 /* Heading overrides for dark bg */
-/* .tc-heading {
-    color: #fff;
-}
-
-.tc-subtitle {
-    color: #8fb5b0 !important;
-    margin-bottom: 10px;
-} */
-
 /* ── Slider rows ─────────────────────────────────────── */
 .tc-slider-row {
     padding-inline: 0;
@@ -3323,10 +3278,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 /* Heading override */
-/* .bf-heading {
-    color: #fff;
-} */
-
 /* ── Steps container ─────────────────────────────────── */
 .bf-steps {
     display: flex;
@@ -3592,10 +3543,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 /* Heading */
-/* .ct-heading {
-    color: #fff;
-} */
-
 /* ── Table wrapper ───────────────────────────────────── */
 .ct-table-wrap {
     border-radius: 16px;
@@ -4029,14 +3976,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 /* Heading */
-/* .vt-heading {
-    color: #fff;
-}
-
-.vt-subtitle {
-    color: #8fb5b0 !important;
-} */
-
 /* ── Slider wrapper ──────────────────────────────────── */
 .vt-slider-wrap {
     position: relative;
@@ -4516,9 +4455,6 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     background: #e67a00;
     transform: translateY(-2px);
 }
-
-/* ===== RESPONSIVE ===== */
-
 
 
 /* Footer */

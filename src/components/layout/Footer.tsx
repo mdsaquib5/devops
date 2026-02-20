@@ -64,7 +64,7 @@ const Footer = () => {
                     {/* Brand Column */}
                     <div className="ft-brand">
                         <Link href="/" className="ft-logo">
-                            <Image src="/images/logo.png" alt="Logo" width={630} height={154} />
+                            <Image src="/images/logo.webp" alt="Logo" width={630} height={154} />
                         </Link>
                         <p className="ft-tagline">
                             Pune&apos;s #1 DevOps training institute with 100% placement support, GenAI-powered labs & industry mentors.
