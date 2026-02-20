@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./test.css";
+import "./responsive.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { montserrat } from "../fonts/font";
