@@ -4521,5 +4521,290 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 
 
+/* Footer */
+.ft-section {
+    background: linear-gradient(160deg, #061511 0%, #0a2420 40%, #0d2f28 100%);
+    padding: 80px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative glows */
+.ft-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+}
+
+.ft-glow--1 {
+    width: 500px;
+    height: 500px;
+    background: #004f44;
+    opacity: 0.08;
+    top: -150px;
+    left: -100px;
+}
+
+.ft-glow--2 {
+    width: 400px;
+    height: 400px;
+    background: #ff8800;
+    opacity: 0.04;
+    bottom: -100px;
+    right: -80px;
+}
+
+/* ── Top Grid: 4 Columns ──────────────────────────── */
+.ft-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+/* ── Brand Column ─────────────────────────────────── */
+.ft-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ft-logo img {
+    height: 45px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.ft-tagline {
+    font-size: 14px;
+    color: #8fb5b0;
+    line-height: 1.75;
+    max-width: 300px;
+}
+
+/* ── Socials ──────────────────────────────────────── */
+.ft-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.ft-social {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #8fb5b0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.ft-social:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 79, 68, 0.3);
+}
+
+/* ── Link Columns ─────────────────────────────────── */
+.ft-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ft-col-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.ft-col-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: 2px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+.ft-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ft-links li a {
+    font-size: 14px;
+    color: #8fb5b0;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+
+.ft-links li a:hover {
+    color: #fff;
+    gap: 6px;
+}
+
+.ft-links li a::before {
+    content: '\2192';
+    font-size: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    margin-left: -14px;
+}
+
+.ft-links li a:hover::before {
+    opacity: 1;
+    margin-left: 0;
+}
+
+/* ── Contact Column ───────────────────────────────── */
+.ft-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ft-contact li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ft-contact-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #5a7a77;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ft-contact li span:last-child {
+    font-size: 14px;
+    color: #c5d9d6;
+}
+
+/* ── CTA Button ───────────────────────────────────── */
+.ft-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--secondary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin-top: 4px;
+}
+
+.ft-cta-btn:hover {
+    background: #e67a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 136, 0, 0.3);
+}
+
+/* ── Divider ──────────────────────────────────────── */
+.ft-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+
+/* ── Resource Tags Section ────────────────────────── */
+.ft-resources {
+    padding: 44px 0;
+}
+
+.ft-resources-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.ft-resources-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: 2px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+.ft-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ft-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #8fb5b0;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.ft-tag:hover {
+    background: rgba(0, 79, 68, 0.25);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 79, 68, 0.2);
+}
+
+/* ── Bottom Bar ───────────────────────────────────── */
+.ft-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ft-copy {
+    font-size: 13px;
+    color: #5a7a77;
+}
+
+.ft-legal {
+    display: flex;
+    gap: 24px;
+}
+
+.ft-legal a {
+    font-size: 13px;
+    color: #5a7a77;
+    transition: color 0.3s ease;
+}
+
+.ft-legal a:hover {
+    color: #fff;
+}
+
 /* Css ends -----------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------- */
