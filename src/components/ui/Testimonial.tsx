@@ -32,10 +32,18 @@ const Testimonial = () => {
                 {/* Swiper slider */}
                 <div className="vt-slider-wrap">
                     {/* Custom nav buttons */}
-                    <button className="vt-nav-btn vt-nav-prev">
+                    <button 
+                        className="vt-nav-btn vt-nav-prev"
+                        aria-label="Previous testimonial"
+                        title="Previous testimonial"
+                    >
                         <FaChevronLeft size={16} />
                     </button>
-                    <button className="vt-nav-btn vt-nav-next">
+                    <button 
+                        className="vt-nav-btn vt-nav-next"
+                        aria-label="Next testimonial"
+                        title="Next testimonial"
+                    >
                         <FaChevronRight size={16} />
                     </button>
                     <Swiper
@@ -72,7 +80,12 @@ const Testimonial = () => {
             {activeVideo && (
                 <div className="vt-modal" onClick={() => setActiveVideo(null)}>
                     <div className="vt-modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="vt-modal-close" onClick={() => setActiveVideo(null)}>
+                        <button 
+                            className="vt-modal-close" 
+                            onClick={() => setActiveVideo(null)}
+                            aria-label="Close video modal"
+                            title="Close video"
+                        >
                             <FaTimes size={18} />
                         </button>
                         <iframe

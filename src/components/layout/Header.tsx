@@ -124,7 +124,9 @@ const Header = () => {
                                 <button
                                     className={`drawer-toggle ${drawerOpen ? 'active' : ''}`}
                                     onClick={toggleDrawer}
-                                    aria-label="Toggle menu"
+                                    aria-label={drawerOpen ? "Close navigation menu" : "Open navigation menu"}
+                                    aria-expanded={drawerOpen}
+                                    title={drawerOpen ? "Close menu" : "Open menu"}
                                 >
                                     <div className="hamburger">
                                         <span></span>
@@ -151,7 +153,12 @@ const Header = () => {
                         {/* Drawer Header */}
                         <div className="drawer-header">
                             <div className="drawer-logo">DevOps Training</div>
-                            <button className="drawer-close" onClick={closeDrawer}>
+                            <button 
+                                className="drawer-close" 
+                                onClick={closeDrawer}
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                            >
                                 <HiX />
                             </button>
                         </div>

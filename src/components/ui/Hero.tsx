@@ -102,7 +102,9 @@ const Hero = () => {
                 required
               />
               <div className="hr-phone-row">
+                <label htmlFor="hero-country-code" className="sr-only">Country Code</label>
                 <select
+                  id="hero-country-code"
                   name="countryCode"
                   value={formData.countryCode}
                   onChange={handleChange}
@@ -114,7 +116,9 @@ const Hero = () => {
                   <option value="+61">+61</option>
                   <option value="+971">+971</option>
                 </select>
+                <label htmlFor="hero-phone" className="sr-only">Phone Number</label>
                 <input
+                  id="hero-phone"
                   type="tel"
                   name="phone"
                   placeholder="Phone"
@@ -124,7 +128,9 @@ const Hero = () => {
                   required
                 />
               </div>
+              <label htmlFor="hero-purpose" className="sr-only">Purpose</label>
               <select
+                id="hero-purpose"
                 name="purpose"
                 value={formData.purpose}
                 onChange={handleChange}

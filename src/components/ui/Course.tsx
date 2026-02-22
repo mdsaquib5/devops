@@ -18,11 +18,21 @@ const Course = () => {
     useEffect(() => {
         const strip = stripRef.current;
         if (!strip) return;
-        const pill = strip.children[activeTab] as HTMLElement;
-        if (!pill) return;
-        strip.scrollTo({
-            left: pill.offsetLeft - strip.offsetWidth / 2 + pill.offsetWidth / 2,
-            behavior: 'smooth',
+        
+        // Use requestAnimationFrame to avoid forced reflow
+        requestAnimationFrame(() => {
+            const pill = strip.children[activeTab] as HTMLElement;
+            if (!pill) return;
+            
+            // Batch DOM reads to minimize layout thrashing
+            const pillOffsetLeft = pill.offsetLeft;
+            const pillOffsetWidth = pill.offsetWidth;
+            const stripOffsetWidth = strip.offsetWidth;
+            
+            strip.scrollTo({
+                left: pillOffsetLeft - stripOffsetWidth / 2 + pillOffsetWidth / 2,
+                behavior: 'smooth',
+            });
         });
     }, [activeTab]);
 

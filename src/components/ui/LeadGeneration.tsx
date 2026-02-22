@@ -74,7 +74,9 @@ const LeadGeneration = () => {
               required
             />
             <div className="lg-phone-row">
+              <label htmlFor="lead-country-code" className="sr-only">Country Code</label>
               <select
+                id="lead-country-code"
                 name="countryCode"
                 value={formData.countryCode}
                 onChange={handleChange}
@@ -86,7 +88,9 @@ const LeadGeneration = () => {
                 <option value="+61">+61</option>
                 <option value="+971">+971</option>
               </select>
+              <label htmlFor="lead-phone" className="sr-only">Phone Number</label>
               <input
+                id="lead-phone"
                 type="tel"
                 name="phone"
                 placeholder="Phone Number"
@@ -96,7 +100,9 @@ const LeadGeneration = () => {
                 required
               />
             </div>
+            <label htmlFor="lead-purpose" className="sr-only">Purpose</label>
             <select
+              id="lead-purpose"
               name="purpose"
               value={formData.purpose}
               onChange={handleChange}
