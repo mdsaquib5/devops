@@ -75,15 +75,7 @@ const Header = () => {
                     <div className="header-container">
                         <div className="logo">
                             <Link href="/">
-                                <Image 
-                                    src="/images/logo.webp" 
-                                    alt="Logo" 
-                                    width={180} 
-                                    height={50}
-                                    quality={85}
-                                    priority
-                                    sizes="(max-width: 768px) 140px, (max-width: 1024px) 160px, 180px"
-                                />
+                                <Image src="/images/logo.webp" alt="Logo" width={256} height={50} />
                             </Link>
                         </div>
 
