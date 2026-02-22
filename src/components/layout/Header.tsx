@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { BsDownload } from "react-icons/bs";
-import { useState, useEffect } from "react";
-import { HiOutlineChevronDown, HiX } from "react-icons/hi";
+import { useState, useEffect, Suspense } from "react";
 import { useMediaQuery } from 'react-responsive';
 import { headerData } from '../../data/data';
+import { FaDownload, HiOutlineChevronDown, HiX } from '../../utils/dynamicIcons';
+import { BsDownload } from "react-icons/bs";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -111,11 +111,15 @@ const Header = () => {
                         <div className="user-btns">
                             {(!mounted || !isMobile) && (
                                 <>
-                                    {headerData.headerButtons.map((button, index) => (
-                                        <Link key={index} href={button.href} className={`btn ${button.variant}-btn`}>
-                                            {button.label} {button.icon === 'BsDownload' && <BsDownload />}
-                                        </Link>
-                                    ))}
+                                    <Link href={headerData.headerButtons[0].href} className={`btn ${headerData.headerButtons[0].variant}-btn`}>
+                                        {headerData.headerButtons[0].label} 
+                                        <Suspense fallback={<span>📥</span>}>
+                                            <FaDownload />
+                                        </Suspense>
+                                    </Link>
+                                    <Link href={headerData.headerButtons[1].href} className={`btn ${headerData.headerButtons[1].variant}-btn`}>
+                                        {headerData.headerButtons[1].label}
+                                    </Link>
                                 </>
                             )}
 
@@ -159,7 +163,9 @@ const Header = () => {
                                 aria-label="Close navigation menu"
                                 title="Close menu"
                             >
-                                <HiX />
+                                <Suspense fallback={<span>✕</span>}>
+                                    <HiX />
+                                </Suspense>
                             </button>
                         </div>
 
