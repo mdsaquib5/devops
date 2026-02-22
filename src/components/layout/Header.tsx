@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect, Suspense } from "react";
 import { useMediaQuery } from 'react-responsive';
 import { headerData } from '../../data/data';
-import { FaDownload, HiOutlineChevronDown, HiX } from '../../utils/dynamicIcons';
+import { HiOutlineChevronDown, HiX } from '../../utils/dynamicIcons';
 import { BsDownload } from "react-icons/bs";
 
 const Header = () => {
@@ -114,7 +114,7 @@ const Header = () => {
                                     <Link href={headerData.headerButtons[0].href} className={`btn ${headerData.headerButtons[0].variant}-btn`}>
                                         {headerData.headerButtons[0].label} 
                                         <Suspense fallback={<span>📥</span>}>
-                                            <FaDownload />
+                                            <BsDownload />
                                         </Suspense>
                                     </Link>
                                     <Link href={headerData.headerButtons[1].href} className={`btn ${headerData.headerButtons[1].variant}-btn`}>
