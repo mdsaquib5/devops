@@ -8,7 +8,14 @@ const FooterBrand = () => {
     return (
         <div className="ft-brand">
             <Link href="/" className="ft-logo">
-                <Image src="/images/logo.webp" alt="Logo" width={256} height={50} />
+                <Image 
+                    src="/images/logo.webp" 
+                    alt="Logo" 
+                    width={162} 
+                    height={45}
+                    quality={85}
+                    sizes="162px"
+                />
             </Link>
             <p className="ft-tagline">
                 Pune&apos;s #1 DevOps training institute with 100% placement support, GenAI-powered labs & industry mentors.
