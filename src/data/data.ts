@@ -446,7 +446,51 @@ export const trustData: TrustSection[] = [
 ];
 
 export const testimonialsData: Testimonial[] = [
-    // ... (rest of the code remains the same)
+    {
+        name: 'Rahul Sharma',
+        review: 'This course completely changed my career. The hands-on projects and mentor support were outstanding.',
+        videoId: 'dQw4w9WgXcQ',
+        prevRole: 'QA Engineer',
+        currentRole: 'DevOps Engineer',
+        salary: '₹12 LPA',
+        stars: 5,
+    },
+    {
+        name: 'Priya Menon',
+        review: 'Landed my dream job within 2 months of completing the course. Best investment I made.',
+        videoId: 'dQw4w9WgXcQ',
+        prevRole: 'Software Developer',
+        currentRole: 'SRE Engineer',
+        salary: '₹14 LPA',
+        stars: 5,
+    },
+    {
+        name: 'Amit Kulkarni',
+        review: 'The CI/CD and Kubernetes modules were exceptional. Real projects made all the difference.',
+        videoId: 'dQw4w9WgXcQ',
+        prevRole: 'System Admin',
+        currentRole: 'Cloud Engineer',
+        salary: '₹10 LPA',
+        stars: 5,
+    },
+    {
+        name: 'Sneha Patil',
+        review: 'From a fresher to a DevOps role in 4 months. The placement support was incredible.',
+        videoId: 'dQw4w9WgXcQ',
+        prevRole: 'Fresher (B.Tech)',
+        currentRole: 'DevOps Engineer',
+        salary: '₹8 LPA',
+        stars: 5,
+    },
+    {
+        name: 'Vikram Joshi',
+        review: 'Excellent mentors who actually work in the industry. The 1-to-1 sessions were game changers.',
+        videoId: 'dQw4w9WgXcQ',
+        prevRole: 'IT Support',
+        currentRole: 'Platform Engineer',
+        salary: '₹11 LPA',
+        stars: 4,
+    },
 ];
 
 export const headerData = {
