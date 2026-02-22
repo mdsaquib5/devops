@@ -1,9 +1,6 @@
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { HiAcademicCap } from 'react-icons/hi';
-import { FaLaptopCode, FaBriefcase, FaCalendarAlt, FaAws, FaGitAlt, FaLinux } from 'react-icons/fa';
-import { SiDocker, SiKubernetes, SiTerraform, SiAnsible, SiJenkins, SiPrometheus } from 'react-icons/si';
-import { MdLiveTv, MdCloudQueue, MdVideoLibrary } from 'react-icons/md';
+import React from 'react';
 import { ChooseUs } from '../../data/data';
+import { getIcon as getCentralizedIcon } from '../../utils/iconMap';
 
 interface ChooseUsCardProps {
     section: ChooseUs;
@@ -13,28 +10,28 @@ interface ChooseUsCardProps {
 const ChooseUsCard = ({ section, index }: ChooseUsCardProps) => {
     const getIcon = () => {
         const iconMap: Record<string, React.ReactNode> = {
-            HiAcademicCap: <HiAcademicCap size={22} />,
-            FaLaptopCode: <FaLaptopCode size={20} />,
-            FaBriefcase: <FaBriefcase size={18} />,
-            FaCalendarAlt: <FaCalendarAlt size={18} />,
+            HiAcademicCap: getCentralizedIcon('HiAcademicCap', 22),
+            FaLaptopCode: getCentralizedIcon('FaLaptopCode', 20),
+            FaBriefcase: getCentralizedIcon('FaBriefcase', 18),
+            FaCalendarAlt: getCentralizedIcon('FaCalendarAlt', 18),
         };
         return iconMap[section.icon] || null;
     };
 
     const getBubbleIcon = (icon: string, size: number) => {
         const iconMap: Record<string, React.ReactNode> = {
-            SiDocker: <SiDocker size={size} />,
-            SiKubernetes: <SiKubernetes size={size} />,
-            SiTerraform: <SiTerraform size={size} />,
-            FaAws: <FaAws size={size} />,
-            MdLiveTv: <MdLiveTv size={size} />,
-            FaGitAlt: <FaGitAlt size={size} />,
-            MdCloudQueue: <MdCloudQueue size={size} />,
-            SiJenkins: <SiJenkins size={size} />,
-            SiPrometheus: <SiPrometheus size={size} />,
-            SiAnsible: <SiAnsible size={size} />,
-            FaLinux: <FaLinux size={size} />,
-            MdVideoLibrary: <MdVideoLibrary size={size} />,
+            SiDocker: getCentralizedIcon('SiDocker', size),
+            SiKubernetes: getCentralizedIcon('SiKubernetes', size),
+            SiTerraform: getCentralizedIcon('SiTerraform', size),
+            FaAws: getCentralizedIcon('FaAws', size),
+            FaGitAlt: getCentralizedIcon('FaGitAlt', size),
+            MdLiveTv: getCentralizedIcon('MdLiveTv', size),
+            MdCloudQueue: getCentralizedIcon('MdCloudQueue', size),
+            SiJenkins: getCentralizedIcon('SiJenkins', size),
+            SiPrometheus: getCentralizedIcon('SiPrometheus', size),
+            SiAnsible: getCentralizedIcon('SiAnsible', size),
+            FaLinux: getCentralizedIcon('FaLinux', size),
+            MdVideoLibrary: getCentralizedIcon('MdVideoLibrary', size),
         };
         return iconMap[icon] || null;
     };
@@ -50,7 +47,9 @@ const ChooseUsCard = ({ section, index }: ChooseUsCardProps) => {
                 <div className="wc-checklist">
                     {section.items.map((item, j) => (
                         <div key={j} className="wc-check-item">
-                            <BsCheckCircleFill className="wc-check-icon" style={{ color: section.color }} />
+                            <span className="wc-check-icon" style={{ color: section.color }}>
+                                {getCentralizedIcon('BsCheckCircleFill', 16)}
+                            </span>
                             <span>{item}</span>
                         </div>
                     ))}
