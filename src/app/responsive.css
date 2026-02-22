@@ -49,6 +49,10 @@
         display: block;
     }
 
+    .user-btns {
+        display: flex;
+    }
+
     .drawer-toggle {
         display: none;
     }
@@ -1010,7 +1014,7 @@
 @media (max-width: 1399.98px) {
 
     /* Hide desktop menu, show drawer */
-    .menus nav {
+    .menus, .user-btns .btn {
         display: none;
     }
 
@@ -1025,7 +1029,6 @@
         border-radius: 8px;
         cursor: pointer;
         transition: all 0.3s ease;
-        z-index: 1001;
     }
 
     .drawer-toggle:hover {

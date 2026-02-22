@@ -208,7 +208,6 @@ header {
 }
 
 .user-btns {
-    display: flex;
     gap: 30px;
     align-items: center;
 }
@@ -373,10 +372,6 @@ header {
   color: #ffffff;
   line-height: 1.25;
   margin-bottom: 16px;
-}
-
-.hr-highlight-gold {
-  color: #d4a843;
 }
 
 .hr-highlight-orange {

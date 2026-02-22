@@ -6,6 +6,7 @@ import { BsDownload } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { HiOutlineChevronDown, HiX } from "react-icons/hi";
 import { useMediaQuery } from 'react-responsive';
+import { headerData } from '../../data/data';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
     const [mounted, setMounted] = useState(false);
 
     // Media query hook - drawer activates below 1400px
-    const isMobile = useMediaQuery({ maxWidth: 1399 });
+    const isMobile = useMediaQuery({ query: '(max-width: 1399px)' });
 
     // Wait for client mount to avoid hydration mismatch
     useEffect(() => {
@@ -67,37 +68,6 @@ const Header = () => {
         setActiveDropdown(null);
     };
 
-    // Menu data structure
-    const menuItems = [
-        { label: 'Home', href: '/' },
-        {
-            label: 'Dropdown 1',
-            href: '#',
-            dropdown: [
-                { label: 'Dropdown Item 1', href: '/' },
-                { label: 'Dropdown Item 2', href: '/' },
-                { label: 'Dropdown Item 3', href: '/' },
-                { label: 'Dropdown Item 4', href: '/' },
-                { label: 'Dropdown Item 5', href: '/' },
-                { label: 'Dropdown Item 6', href: '/' },
-            ]
-        },
-        { label: 'Course Curriculum', href: '/' },
-        {
-            label: 'Dropdown 2',
-            href: '#',
-            dropdown: [
-                { label: 'Dropdown Item 1', href: '/' },
-                { label: 'Dropdown Item 2', href: '/' },
-                { label: 'Dropdown Item 3', href: '/' },
-                { label: 'Dropdown Item 4', href: '/' },
-                { label: 'Dropdown Item 5', href: '/' },
-                { label: 'Dropdown Item 6', href: '/' },
-            ]
-        },
-        { label: 'Reviews', href: '/' },
-    ];
-
     return (
         <>
             <header className={`${isScrolled ? 'scrollto' : ''}`}>
@@ -105,7 +75,7 @@ const Header = () => {
                     <div className="header-container">
                         <div className="logo">
                             <Link href="/">
-                                <Image src="/images/logo.webp" alt="Logo" width={630} height={154} />
+                                <Image src="/images/logo.webp" alt="Logo" width={256} height={50} />
                             </Link>
                         </div>
 
@@ -113,7 +83,7 @@ const Header = () => {
                         <div className="menus">
                             <nav>
                                 <ul>
-                                    {menuItems.map((item, index) => (
+                                    {headerData.menuItems.map((item, index) => (
                                         item.dropdown ? (
                                             <li key={index} className="dropdown">
                                                 <Link href={item.href}>
@@ -141,12 +111,11 @@ const Header = () => {
                         <div className="user-btns">
                             {(!mounted || !isMobile) && (
                                 <>
-                                    <Link href="/" className="btn primary-btn">
-                                        Download Syllabus <BsDownload />
-                                    </Link>
-                                    <Link href="/" className="btn secondary-btn">
-                                        Enroll Now
-                                    </Link>
+                                    {headerData.headerButtons.map((button, index) => (
+                                        <Link key={index} href={button.href} className={`btn ${button.variant}-btn`}>
+                                            {button.label} {button.icon === 'BsDownload' && <BsDownload />}
+                                        </Link>
+                                    ))}
                                 </>
                             )}
 
@@ -190,7 +159,7 @@ const Header = () => {
                         {/* Drawer Navigation */}
                         <nav className="drawer-nav">
                             <ul>
-                                {menuItems.map((item, index) => (
+                                {headerData.menuItems.map((item, index) => (
                                     <li key={index}>
                                         {item.dropdown ? (
                                             <>
@@ -225,12 +194,11 @@ const Header = () => {
 
                         {/* Drawer Actions */}
                         <div className="drawer-actions">
-                            <Link href="/" className="btn primary-btn" onClick={closeDrawer}>
-                                Download Syllabus <BsDownload />
-                            </Link>
-                            <Link href="/" className="btn secondary-btn" onClick={closeDrawer}>
-                                Enroll Now
-                            </Link>
+                            {headerData.headerButtons.map((button, index) => (
+                                <Link key={index} href={button.href} className={`btn ${button.variant}-btn`} onClick={closeDrawer}>
+                                    {button.label} {button.icon === 'BsDownload' && <BsDownload />}
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </>

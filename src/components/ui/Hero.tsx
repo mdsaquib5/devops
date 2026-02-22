@@ -57,7 +57,7 @@ const Hero = () => {
 
             <h1 className="hr-heading">
               DevOps Course in Pune with{' '}
-              <span className="hr-highlight-gold">GenAI</span> Integrated
+              <span className="hr-highlight-orange">GenAI</span> Integrated
               Curriculum &amp;{' '}
               <span className="hr-highlight-orange">Career Support</span>
             </h1>
