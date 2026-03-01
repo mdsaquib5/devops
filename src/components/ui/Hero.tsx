@@ -62,8 +62,6 @@ const Hero = () => {
               <span className="hr-highlight-orange">Career Support</span>
             </h1>
 
-            <h2 className="hr-subtitle">Master in Terraform</h2>
-
             <ul className="hr-bullets">
               {bullets.map((item, i) => (
                 <li className="hr-bullet" key={i}>
