@@ -35,10 +35,122 @@ a {
 
 button {
     font-family: inherit;
-    cursor: pointer;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
     border: none;
-    background: none;
-    outline: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 79, 68, 0.3);
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+.scroll-to-top-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(0, 79, 68, 0.4);
+    background: var(--primary);
+}
+
+.scroll-progress-ring {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.progress-bg {
+    opacity: 0.3;
+}
+
+.progress-bar {
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.scroll-icon {
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    color: #fff;
+}
+
+.scroll-percentage {
+    position: absolute;
+    bottom: -25px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2px 6px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-to-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .scroll-progress-ring {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .progress-svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .progress-svg circle {
+        cx: 25;
+        cy: 25;
+        r: 23;
+    }
+    
+    .scroll-icon {
+        font-size: 14px;
+    }
+    
+    .scroll-percentage {
+        bottom: -22px;
+        font-size: 10px;
+    }
 }
 
 /* Screen reader only content */
@@ -660,14 +772,25 @@ header {
     letter-spacing: 0.5px;
 }
 
-form :is(input, textarea, select):-webkit-autofill,
-form :is(input, textarea, select):-webkit-autofill:hover,
-form :is(input, textarea, select):-webkit-autofill:focus {
+.hr-form-wrapper form :is(input, textarea, select):-webkit-autofill,
+.hr-form-wrapper form :is(input, textarea, select):-webkit-autofill:hover,
+.hr-form-wrapper form :is(input, textarea, select):-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
     box-shadow: 0 0 0 1000px transparent inset !important;
     -webkit-text-fill-color: #eee !important;
     color: #eee !important;
     caret-color: var(--secondary);
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+.lg-layout form :is(input, textarea, select):-webkit-autofill,
+.lg-layout form :is(input, textarea, select):-webkit-autofill:hover,
+.lg-layout form :is(input, textarea, select):-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #000 !important;
+    color: #000 !important;
+    caret-color: var(--primary);
     transition: background-color 9999s ease-in-out 0s;
 }
 
@@ -950,7 +1073,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #ff8800;
+    background: var(--secondary);
     animation: dm-pulse 2s ease infinite;
 }
 
@@ -977,7 +1100,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .dm-heading span {
-    color: #ff8800;
+    color: var(--secondary);
     position: relative;
 }
 
@@ -988,7 +1111,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #ff8800, transparent);
+    background: linear-gradient(90deg, var(--secondary), transparent);
     border-radius: 2px;
 }
 
@@ -1027,11 +1150,11 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .dm-insight--green {
-    border-top-color: #004f44;
+    border-top-color: var(--primary);
 }
 
 .dm-insight--orange {
-    border-top-color: #ff8800;
+    border-top-color: var(--secondary);
 }
 
 .dm-insight--teal {
@@ -1068,7 +1191,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .dm-insight--green .dm-insight-title {
-    color: #004f44;
+    color: var(--primary);
 }
 
 .dm-insight--orange .dm-insight-title {
@@ -1086,7 +1209,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .dm-link {
-    color: #ff8800;
+    color: var(--secondary);
     font-weight: 600;
     text-decoration: underline;
     transition: opacity 0.2s;
@@ -1115,7 +1238,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .cr-section::before {
     width: 500px;
     height: 500px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.05;
     top: -150px;
     right: -100px;
@@ -1124,7 +1247,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .cr-section::after {
     width: 380px;
     height: 380px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.05;
     bottom: -100px;
     left: -80px;
@@ -1143,7 +1266,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     border-radius: 50%;
     border: 1.5px solid #d0dedd;
     background: #fff;
-    color: #004f44;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1155,9 +1278,9 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-arrow:hover:not(:disabled) {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
-    border-color: #004f44;
+    border-color: var(--primary);
     box-shadow: 0 4px 14px rgba(0, 79, 68, 0.22);
 }
 
@@ -1202,20 +1325,20 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-pill:hover {
-    border-color: #004f44;
-    color: #004f44;
+    border-color: var(--primary);
+    color: var(--primary);
     background: #f0f8f7;
 }
 
 .cr-pill--done {
     background: rgba(0, 79, 68, 0.07);
-    border-color: #004f44;
-    color: #004f44;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .cr-pill--active {
-    background: #ff8800;
-    border-color: #ff8800;
+    background: var(--secondary);
+    border-color: var(--secondary);
     color: #fff;
     box-shadow: 0 4px 14px rgba(255, 136, 0, 0.3);
     font-weight: 700;
@@ -1230,7 +1353,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-card-head {
-    background: linear-gradient(135deg, #004f44 0%, #006b5c 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #006b5c 100%);
     padding: 32px 36px 28px;
     position: relative;
     overflow: hidden;
@@ -1263,7 +1386,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-module-badge strong {
-    color: #ff8800;
+    color: var(--secondary);
     font-weight: 800;
 }
 
@@ -1312,7 +1435,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-chip:hover {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     border-color: transparent;
     transform: translateY(-2px);
@@ -1320,11 +1443,11 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-chip:hover .cr-chip-icon {
-    color: #ff8800;
+    color: var(--secondary);
 }
 
 .cr-chip-icon {
-    color: #ff8800;
+    color: var(--secondary);
     font-size: 12px;
     flex-shrink: 0;
     transition: color 0.2s;
@@ -1359,7 +1482,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 .cr-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #004f44, #00c49a);
+    background: linear-gradient(90deg, var(--primary), #00c49a);
     border-radius: 10px;
     transition: width 0.4s ease;
 }
@@ -1386,13 +1509,13 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     cursor: pointer;
     border: 1.5px solid #d0dedd;
     background: #fff;
-    color: #004f44;
+    color: var(--primary);
     transition: all 0.22s ease;
     font-family: inherit;
 }
 
 .cr-nav-btn:hover:not(:disabled) {
-    border-color: #004f44;
+    border-color: var(--primary);
     background: #f0f8f7;
 }
 
@@ -1402,7 +1525,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .cr-nav-btn--primary {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     border-color: transparent;
 }
@@ -1804,7 +1927,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .pf-card--featured {
     grid-column: 2;
     grid-row: 1 / 3;
-    background: linear-gradient(160deg, #004f44 0%, #003630 100%);
+    background: linear-gradient(160deg, var(--primary) 0%, #003630 100%);
     border-radius: 18px;
     padding: 30px;
     position: relative;
@@ -1841,7 +1964,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     font-weight: 900;
     line-height: 1;
     opacity: 0.09;
-    color: #004f44;
+    color: var(--primary);
     pointer-events: none;
     user-select: none;
 }
@@ -2072,12 +2195,12 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .tp-circle--orange {
-    background: #ff8800;
+    background: var(--secondary);
     color: #fff;
 }
 
 .tp-circle--green {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
 }
 
@@ -2121,11 +2244,11 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .tp-accent--orange {
-    background: #ff8800;
+    background: var(--secondary);
 }
 
 .tp-accent--green {
-    background: #004f44;
+    background: var(--primary);
 }
 
 .tp-accent--teal {
@@ -2191,7 +2314,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .tp-stat-val {
     font-size: 20px;
     font-weight: 800;
-    color: #004f44;
+    color: var(--primary);
     line-height: 1;
 }
 
@@ -2199,7 +2322,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     font-style: normal;
     font-size: 12px;
     font-weight: 600;
-    color: #ff8800;
+    color: var(--secondary);
 }
 
 .tp-stat-sub {
@@ -2224,7 +2347,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .tp-check {
-    color: #004f44;
+    color: var(--primary);
     font-size: 15px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -2298,7 +2421,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 .tp-profile-tag {
     display: inline-block;
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     font-size: 12px;
     font-weight: 700;
@@ -2327,7 +2450,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .tp-note svg {
-    color: #ff8800;
+    color: var(--secondary);
     flex-shrink: 0;
     margin-top: 2px;
     font-size: 14px;
@@ -2358,7 +2481,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .tp-dur-val {
     font-size: 24px;
     font-weight: 800;
-    color: #004f44;
+    color: var(--primary);
     line-height: 1;
     margin-bottom: 5px;
 }
@@ -2376,7 +2499,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .tp-batch-chip {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -2453,7 +2576,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     font-size: 10px;
     font-weight: 700;
     background: rgba(255, 136, 0, 0.1);
-    color: #ff8800;
+    color: var(--secondary);
     border: 1px solid rgba(255, 136, 0, 0.2);
     padding: 2px 8px;
     border-radius: 10px;
@@ -2483,7 +2606,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .tp-cta-primary {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     border: 2px solid transparent;
 }
@@ -2496,12 +2619,12 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 .tp-cta-outline {
     background: transparent;
-    color: #004f44;
+    color: var(--primary);
     border: 2px solid #d5e8e5;
 }
 
 .tp-cta-outline:hover {
-    border-color: #004f44;
+    border-color: var(--primary);
     background: #f0f8f7;
 }
 
@@ -2522,7 +2645,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.03;
     top: -180px;
     right: -120px;
@@ -2558,12 +2681,12 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .sk-tab:hover {
-    border-color: #004f44;
-    color: #004f44;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .sk-tab--active {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     border-color: transparent;
     box-shadow: 0 4px 14px rgba(0, 79, 68, 0.22);
@@ -2580,7 +2703,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .sk-tab--active .sk-tab-icon {
-    color: #ff8800;
+    color: var(--secondary);
 }
 
 /* ── Counter ──────────────────────────────────────────── */
@@ -2597,7 +2720,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .sk-counter strong {
-    color: #004f44;
+    color: var(--primary);
     font-weight: 700;
 }
 
@@ -2640,7 +2763,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--sk-accent, #004f44), transparent);
+    background: linear-gradient(90deg, var(--sk-accent, var(--primary)), transparent);
     opacity: 0.7;
     border-radius: 20px 20px 0 0;
 }
@@ -2653,7 +2776,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background: var(--sk-accent, #004f44);
+    background: var(--sk-accent, var(--primary));
     opacity: 0.04;
     filter: blur(30px);
     pointer-events: none;
@@ -2751,8 +2874,8 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 .sk-chip:hover {
     background: rgba(0, 79, 68, 0.06);
-    border-color: var(--sk-accent, #004f44);
-    color: #004f44;
+    border-color: var(--sk-accent, var(--primary));
+    color: var(--primary);
     transform: translateY(-1px);
     box-shadow: 0 3px 10px rgba(0, 79, 68, 0.08);
 }
@@ -2779,7 +2902,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .tc-glow--1 {
     width: 400px;
     height: 400px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.15;
     top: -100px;
     left: -80px;
@@ -2788,7 +2911,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .tc-glow--2 {
     width: 350px;
     height: 350px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.07;
     bottom: -120px;
     right: -60px;
@@ -2887,13 +3010,13 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .fq-card--open {
-    border-color: #004f44;
+    border-color: var(--primary);
     box-shadow: 0 8px 30px rgba(0, 79, 68, 0.1);
     transform: translateY(-2px);
 }
 
 .fq-card--open:hover {
-    border-color: #004f44;
+    border-color: var(--primary);
 }
 
 /* ── Question button ─────────────────────────────────── */
@@ -2927,7 +3050,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .fq-card--open .fq-num {
-    background: #004f44;
+    background: var(--primary);
     color: #fff;
     box-shadow: 0 4px 12px rgba(0, 79, 68, 0.25);
 }
@@ -2943,11 +3066,11 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .fq-card--open .fq-q-text {
-    color: #004f44;
+    color: var(--primary);
 }
 
 .fq-question:hover .fq-q-text {
-    color: #004f44;
+    color: var(--primary);
 }
 
 /* Chevron */
@@ -2966,14 +3089,14 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 .fq-chevron--open {
     transform: rotate(180deg);
-    background: #ff8800;
+    background: var(--secondary);
     color: #fff;
     box-shadow: 0 3px 10px rgba(255, 136, 0, 0.25);
 }
 
 .fq-question:hover .fq-chevron:not(.fq-chevron--open) {
     background: #e0efed;
-    color: #004f44;
+    color: var(--primary);
 }
 
 /* ── Answer ───────────────────────────────────────────── */
@@ -3018,7 +3141,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ab-glow--1 {
     width: 420px;
     height: 420px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.12;
     top: -120px;
     right: -80px;
@@ -3027,7 +3150,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ab-glow--2 {
     width: 300px;
     height: 300px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.06;
     bottom: -100px;
     left: -60px;
@@ -3170,7 +3293,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .ab-callout-icon {
-    color: #ff8800;
+    color: var(--secondary);
     font-size: 22px;
     flex-shrink: 0;
     margin-top: 1px;
@@ -3325,7 +3448,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .bf-glow--1 {
     width: 400px;
     height: 400px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.12;
     top: -100px;
     left: 50%;
@@ -3335,7 +3458,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .bf-glow--2 {
     width: 300px;
     height: 300px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.05;
     bottom: -80px;
     right: -60px;
@@ -3358,7 +3481,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     left: 40px;
     right: 40px;
     height: 2px;
-    background: linear-gradient(90deg, #00c49a, #ff8800, #326CE5, #ff8800, #00c49a);
+    background: linear-gradient(90deg, #00c49a, var(--secondary), #326CE5, var(--secondary), #00c49a);
     opacity: 0.3;
     border-radius: 2px;
     z-index: 0;
@@ -3439,7 +3562,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .bf-callout-icon {
-    color: #ff8800;
+    color: var(--secondary);
     font-size: 22px;
     flex-shrink: 0;
     margin-top: 1px;
@@ -3495,7 +3618,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     border-radius: 18px;
     background: #fff;
     border: 1px solid #e4edeb;
-    border-top: 4px solid var(--wj-accent, #004f44);
+    border-top: 4px solid var(--wj-accent, var(--primary));
     box-shadow: 0 4px 18px rgba(0, 79, 68, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -3552,7 +3675,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .wj-note-icon {
-    color: #004f44;
+    color: var(--primary);
     font-size: 20px;
     flex-shrink: 0;
     margin-top: 1px;
@@ -3590,7 +3713,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ct-glow--1 {
     width: 400px;
     height: 400px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.12;
     top: -120px;
     right: -80px;
@@ -3599,7 +3722,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ct-glow--2 {
     width: 300px;
     height: 300px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.05;
     bottom: -100px;
     left: -60px;
@@ -3626,7 +3749,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 /* ── Header ──────────────────────────────────────────── */
 .ct-th {
-    padding: 18px 22px;
+    padding: 12px;
     font-size: 14px;
     font-weight: 700;
     text-align: left;
@@ -3649,7 +3772,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .ct-star {
-    color: #ff8800;
+    color: var(--secondary);
     font-size: 13px;
 }
 
@@ -3763,7 +3886,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .cta-wrap::before {
     width: 280px;
     height: 280px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.04;
     top: -100px;
     left: -80px;
@@ -3772,7 +3895,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .cta-wrap::after {
     width: 220px;
     height: 220px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.05;
     bottom: -80px;
     right: -60px;
@@ -3805,7 +3928,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     gap: 10px;
     padding: 15px 36px;
     border-radius: 12px;
-    background: #ff8800;
+    background: var(--secondary);
     color: #fff;
     font-size: 15px;
     font-weight: 700;
@@ -3842,7 +3965,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ts-glow--1 {
     width: 420px;
     height: 420px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.04;
     top: -100px;
     left: 50%;
@@ -3852,7 +3975,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ts-glow--2 {
     width: 300px;
     height: 300px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.03;
     bottom: -80px;
     right: -60px;
@@ -3872,7 +3995,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, #00c49a, #ff8800, #326CE5, #00c49a, #ff8800, #326CE5);
+    background: linear-gradient(180deg, #00c49a, var(--secondary), #326CE5, #00c49a, var(--secondary), #326CE5);
     opacity: 0.25;
     transform: translateX(-50%);
 }
@@ -3988,7 +4111,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .ts-tip-icon {
-    color: #ff8800;
+    color: var(--secondary);
     font-size: 13px;
     flex-shrink: 0;
     margin-top: 2px;
@@ -4021,7 +4144,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .vt-glow--1 {
     width: 400px;
     height: 400px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.12;
     top: -100px;
     right: -80px;
@@ -4030,7 +4153,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .vt-glow--2 {
     width: 300px;
     height: 300px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.06;
     bottom: -100px;
     left: -60px;
@@ -4059,7 +4182,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     border-radius: 50%;
     background: #fff;
     border: 2px solid #e4edeb;
-    color: #004f44;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4070,8 +4193,8 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .vt-nav-btn:hover {
-    background: #ff8800;
-    border-color: #ff8800;
+    background: var(--secondary);
+    border-color: var(--secondary);
     color: #fff;
     box-shadow: 0 6px 28px rgba(255, 136, 0, 0.4);
     transform: translateY(-50%) scale(1.1);
@@ -4115,7 +4238,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .vt-swiper .swiper-pagination-bullet-active {
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 1;
     width: 28px;
     border-radius: 5px;
@@ -4183,7 +4306,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: #ff8800;
+    background: var(--secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4214,7 +4337,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 }
 
 .vt-star {
-    color: #ff8800;
+    color: var(--secondary);
     font-size: 13px;
 }
 
@@ -4283,7 +4406,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
     margin-left: auto;
     font-size: 14px;
     font-weight: 800;
-    color: #ff8800;
+    color: var(--secondary);
     white-space: nowrap;
 }
 
@@ -4536,7 +4659,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ft-glow--1 {
     width: 500px;
     height: 500px;
-    background: #004f44;
+    background: var(--primary);
     opacity: 0.08;
     top: -150px;
     left: -100px;
@@ -4545,7 +4668,7 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ft-glow--2 {
     width: 400px;
     height: 400px;
-    background: #ff8800;
+    background: var(--secondary);
     opacity: 0.04;
     bottom: -100px;
     right: -80px;
@@ -4690,6 +4813,17 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 .ft-contact li span:last-child {
     font-size: 14px;
     color: #c5d9d6;
+}
+
+.ft-contact-link {
+    font-size: 14px;
+    color: #c5d9d6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.ft-contact-link:hover {
+    color: var(--secondary);
 }
 
 /* ── CTA Button ───────────────────────────────────── */
@@ -6329,6 +6463,170 @@ form :is(input, textarea, select):-webkit-autofill:focus {
 
 .h-cta-btn svg {
     font-size: 16px;
+}
+
+/* Mentors Section - Glass Card with Floating Photo */
+.h-mentor-section {
+    background: #eef2f1;
+    position: relative;
+    overflow: hidden;
+}
+
+.h-mentor-section::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--primary);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.06;
+    top: -100px;
+    right: -150px;
+    pointer-events: none;
+}
+
+.h-mentor-section::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--secondary);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.05;
+    bottom: -80px;
+    left: -100px;
+    pointer-events: none;
+}
+
+/* Mentor Grid */
+.h-mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Mentor Card */
+.h-mentor-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 79, 68, 0.1);
+    border-radius: 24px;
+    padding: 48px 36px 40px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.h-mentor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 79, 68, 0.12);
+    border-color: rgba(255, 136, 0, 0.3);
+}
+
+/* Photo */
+.h-mentor-photo-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 28px;
+}
+
+.h-mentor-photo-glow {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0.3;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.h-mentor-card:hover .h-mentor-photo-glow {
+    opacity: 0.6;
+}
+
+.h-mentor-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Name */
+.h-mentor-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+/* Divider */
+.h-mentor-divider {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+    margin: 0 auto 16px;
+}
+
+/* Role & Company */
+.h-mentor-role {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 4px;
+}
+
+.h-mentor-company {
+    font-size: 14px;
+    color: #5a7070;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Description */
+.h-mentor-description {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a5d5d;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+/* Skills */
+.h-mentor-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.h-mentor-skill-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(0, 79, 68, 0.08);
+    border: 1px solid rgba(0, 79, 68, 0.15);
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+}
+
+.h-mentor-skill-tag:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
 }
 
 /* Css ends -----------------------------------------------------------------------------------------

@@ -2,29 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
+import { useContactForm } from '@/hooks/useContactForm';
 
 const Hero = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    countryCode: '+91',
-    phone: '',
-    purpose: '',
-    agreed: false,
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  const { formData, handleChange, handleSubmit, isSubmitting } = useContactForm();
 
   const stats = [
     { value: 100, suffix: '+', label: 'Students Placed' },
@@ -154,7 +135,9 @@ const Hero = () => {
                 By submitting this form, you agree to our Terms and Conditions
               </label>
 
-              <button type="submit" className="hr-submit">Send</button>
+              <button type="submit" className="hr-submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send'}
+              </button>
             </form>
           </div>
         </div>

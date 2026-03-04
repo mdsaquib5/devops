@@ -9,19 +9,25 @@ const FooterResources = () => {
 
             {/* Resource Tags Section */}
             <div className="ft-resources">
-                <h4 className="ft-resources-title">DevOps Career Resources</h4>
+                <h4 className="ft-resources-title">Locations</h4>
                 <div className="ft-tags">
-                    {footerData.resourceTags.map((tag, i) => (
-                        <Link key={i} href="/" className="ft-tag">
-                            {tag}
-                        </Link>
-                    ))}
+                    {footerData.resourceTags.map((tag, i) => {
+                        // Convert tag to URL format
+                        const cityUrl = tag.toLowerCase()
+                            .replace('devops course in ', '')
+                            .replace(' ', '-');
+                        return (
+                            <Link key={i} href={`/devops-course-in-${cityUrl}`} className="ft-tag">
+                                {tag}
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
 
             {/* Bottom Bar */}
             <div className="ft-bottom">
-                <p className="ft-copy">&copy; 2026 DevOps Training Pune. All rights reserved.</p>
+                <p className="ft-copy">&copy; 2026 DevOps Training India. All rights reserved.</p>
                 <div className="ft-legal">
                     <Link href="/">Privacy Policy</Link>
                     <Link href="/">Terms of Service</Link>

@@ -111,12 +111,18 @@ const Header = () => {
                         <div className="user-btns">
                             {(!mounted || !isMobile) && (
                                 <>
-                                    <Link href={headerData.headerButtons[0].href} className={`btn ${headerData.headerButtons[0].variant}-btn`}>
-                                        {headerData.headerButtons[0].label} 
+                                    <a 
+                                        href={headerData.headerButtons[0].href} 
+                                        className={`btn ${headerData.headerButtons[0].variant}-btn`}
+                                        download
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {headerData.headerButtons[0].label}
                                         <Suspense fallback={<span>📥</span>}>
                                             <BsDownload />
                                         </Suspense>
-                                    </Link>
+                                    </a>
                                     <Link href={headerData.headerButtons[1].href} className={`btn ${headerData.headerButtons[1].variant}-btn`}>
                                         {headerData.headerButtons[1].label}
                                     </Link>
@@ -157,8 +163,8 @@ const Header = () => {
                         {/* Drawer Header */}
                         <div className="drawer-header">
                             <div className="drawer-logo">DevOps Training</div>
-                            <button 
-                                className="drawer-close" 
+                            <button
+                                className="drawer-close"
                                 onClick={closeDrawer}
                                 aria-label="Close navigation menu"
                                 title="Close menu"
@@ -208,9 +214,23 @@ const Header = () => {
                         {/* Drawer Actions */}
                         <div className="drawer-actions">
                             {headerData.headerButtons.map((button, index) => (
-                                <Link key={index} href={button.href} className={`btn ${button.variant}-btn`} onClick={closeDrawer}>
-                                    {button.label} {button.icon === 'BsDownload' && <BsDownload />}
-                                </Link>
+                                button.icon === 'BsDownload' ? (
+                                    <a 
+                                        key={index} 
+                                        href={button.href} 
+                                        className={`btn ${button.variant}-btn`} 
+                                        onClick={closeDrawer}
+                                        download
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {button.label} <BsDownload />
+                                    </a>
+                                ) : (
+                                    <Link key={index} href={button.href} className={`btn ${button.variant}-btn`} onClick={closeDrawer}>
+                                        {button.label}
+                                    </Link>
+                                )
                             ))}
                         </div>
                     </div>

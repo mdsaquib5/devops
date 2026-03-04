@@ -36,7 +36,13 @@ const FooterLinks = () => {
                     {footerData.contactInfo.map((info, i) => (
                         <li key={i}>
                             <span className="ft-contact-label">{info.label}</span>
-                            <span>{info.value}</span>
+                            {info.label === "Email" ? (
+                                <a href={`mailto:${info.value}`} className="ft-contact-link">{info.value}</a>
+                            ) : info.label === "Phone" ? (
+                                <a href={`tel:${info.value.replace(/\s/g, '')}`} className="ft-contact-link">{info.value}</a>
+                            ) : (
+                                <span>{info.value}</span>
+                            )}
                         </li>
                     ))}
                 </ul>

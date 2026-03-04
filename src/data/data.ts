@@ -142,6 +142,16 @@ export interface HeaderButton {
     variant: 'primary' | 'secondary';
 }
 
+export interface Mentor {
+    name: string;
+    role: string;
+    company: string;
+    experience: string;
+    image: string;
+    description: string;
+    skills: string[];
+}
+
 export const benefits: Benefit[] = [
     {
         icon: "FiAward",
@@ -496,35 +506,19 @@ export const testimonialsData: Testimonial[] = [
 export const headerData = {
     menuItems: [
         { label: 'Home', href: '/' },
+        { label: 'Course Curriculum', href: '/course-curriculum' },
         {
-            label: 'Dropdown 1',
+            label: 'Resources',
             href: '#',
             dropdown: [
-                { label: 'Dropdown Item 1', href: '/' },
-                { label: 'Dropdown Item 2', href: '/' },
-                { label: 'Dropdown Item 3', href: '/' },
-                { label: 'Dropdown Item 4', href: '/' },
-                { label: 'Dropdown Item 5', href: '/' },
-                { label: 'Dropdown Item 6', href: '/' },
+                { label: 'Blogs', href: '/blogs' },
+                { label: 'Learn', href: '/learn' },
             ]
         },
-        { label: 'Course Curriculum', href: '/' },
-        {
-            label: 'Dropdown 2',
-            href: '#',
-            dropdown: [
-                { label: 'Dropdown Item 1', href: '/' },
-                { label: 'Dropdown Item 2', href: '/' },
-                { label: 'Dropdown Item 3', href: '/' },
-                { label: 'Dropdown Item 4', href: '/' },
-                { label: 'Dropdown Item 5', href: '/' },
-                { label: 'Dropdown Item 6', href: '/' },
-            ]
-        },
-        { label: 'Reviews', href: '/about' },
+        { label: 'Contact', href: '/contact' },
     ],
     headerButtons: [
-        { label: 'Download Syllabus', href: '/', icon: 'BsDownload', variant: 'primary' },
+        { label: 'Download Syllabus', href: '/ShifttoTech-DevOps-Curriculum-Professional.pdf', icon: 'BsDownload', variant: 'primary' },
         { label: 'Enroll Now', href: '/', variant: 'secondary' },
     ],
 };
@@ -545,28 +539,18 @@ export const footerData = {
         { label: "Terraform IaC", href: "/" },
     ],
     resourceTags: [
-        "DevOps Salary Guide",
-        "Resume Building for DevOps",
-        "Interview Questions & Answers",
-        "Career Roadmap 2026",
-        "AWS vs Azure Comparison",
-        "Docker vs Kubernetes",
-        "CI/CD Pipeline Guide",
-        "Linux Administration Tips",
-        "Terraform Getting Started",
-        "Ansible Automation Guide",
-        "Git & GitHub Mastery",
-        "Cloud Job Market Trends",
-        "Jenkins Deep Dive",
-        "SRE Career Path",
-        "Monitoring & Logging Guide",
-        "Kubernetes Certification",
-        "Free DevOps Labs",
-        "DevOps Tools Comparison",
-        "DevSecOps Fundamentals",
-        "Prometheus & Grafana Setup",
-        "Chaos Engineering Basics",
-        "Microservices Architecture",
+        "DevOps Course in Mumbai",
+        "DevOps Course in Pune",
+        "DevOps Course in Bangalore",
+        "DevOps Course in Delhi",
+        "DevOps Course in Chennai",
+        "DevOps Course in Hyderabad",
+        "DevOps Course in Kolkata",
+        "DevOps Course in Noida",
+        "DevOps Course in Ahmedabad",
+        "DevOps Course in Chandigarh",
+        "DevOps Course in Coimbatore",
+        "DevOps Course in Jaipur",
     ],
     socialLinks: [
         { icon: "FaLinkedinIn", href: "/", label: "LinkedIn" },
@@ -576,9 +560,9 @@ export const footerData = {
         { icon: "FaInstagram", href: "/", label: "Instagram" },
     ],
     contactInfo: [
-        { label: "Address", value: "Pune, Maharashtra, India" },
-        { label: "Email", value: "info@devopstraining.com" },
-        { label: "Phone", value: "+91 XXXXX XXXXX" },
+        { label: "Address", value: "Bangalore, Karnataka, India" },
+        { label: "Email", value: "training@switchtodevops.com" },
+        { label: "Phone", value: "+91 7982370840" },
     ],
 };
 
@@ -629,4 +613,25 @@ export const chooseUs: ChooseUs[] = [
             { icon: 'MdCloudQueue', color: '#326CE5' },
         ],
     },
+];
+
+export const mentorsData: Mentor[] = [
+    {
+        name: "Firoz Ahmed",
+        role: "AWS DevOps Engineer",
+        company: "TCS",
+        experience: "10+ years experience",
+        image: "/images/avatar.webp",
+        description: "Specializing in DevOps automation and cloud infrastructure, Firoz has architected CI/CD pipelines for Fortune 500 companies.",
+        skills: ["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform"]
+    },
+    {
+        name: "Amit Kumar",
+        role: "DevOps Architect",
+        company: "DeepMind",
+        experience: "10+ years experience",
+        image: "/images/avatar.webp",
+        description: "With a decade of experience building scalable infrastructure and deployment pipelines, Amit brings real-world expertise to every session.",
+        skills: ["Azure", "Ansible", "CI/CD", "Docker", "Linux"]
+    }
 ];

@@ -2,29 +2,10 @@
 
 import { useState } from 'react';
 import SectionTitle from '../layout/SectionTitle';
+import { useContactForm } from '@/hooks/useContactForm';
 
 const LeadGeneration = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    countryCode: '+91',
-    phone: '',
-    purpose: '',
-    agreed: false,
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  const { formData, handleChange, handleSubmit, isSubmitting } = useContactForm();
 
   const stats = [
     { value: '3,00,000+', label: 'Professionals Trained' },
@@ -126,7 +107,9 @@ const LeadGeneration = () => {
               />
               I agree to the Terms &amp; Conditions
             </label>
-            <button type="submit" className="lg-submit">Submit Query</button>
+            <button type="submit" className="lg-submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit Query'}
+            </button>
           </form>
 
           {/* Right Stats */}

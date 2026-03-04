@@ -18,6 +18,7 @@ import Cta from "@/components/ui/Cta";
 import Trust from "@/components/ui/Trust";
 import Testimonial from "@/components/ui/Testimonial";
 import LeadGeneration from "@/components/ui/LeadGeneration";
+import Mentors from "@/components/ui/Mentors";
 
 export default function About() {
     return (
@@ -41,6 +42,7 @@ export default function About() {
             <Cta />
             <Trust />
             <Testimonial />
+            <Mentors />
             <LeadGeneration />
         </>
     );

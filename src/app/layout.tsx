@@ -3,6 +3,7 @@ import "./globals.css";
 import "./responsive.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import ScrollToTopButton from "../components/layout/ScrollToTopButton";
 import { montserrat } from "../fonts/font";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
                     {children}
                 </main>
                 <Footer />
+                <ScrollToTopButton />
             </body>
         </html>
     );

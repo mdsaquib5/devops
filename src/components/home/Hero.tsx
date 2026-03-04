@@ -70,7 +70,7 @@ const Hero = () => {
         {/* City Buttons */}
         <div className="hero-cities">
           {cities.map((city, index) => (
-            <Link href={city.name}
+            <Link href={`/devops-course-in-${city.name.toLowerCase().replace(' ', '-')}`}
               key={index}
               className={`hero-city-btn ${city.primary ? 'primary' : ''}`}
             >

@@ -51,6 +51,8 @@ export interface SectionTitle {
   theme: 'light' | 'dark';
 }
 
+
+
 // Hero Section Data
 export const heroData = {
   badge: "India's Most Trusted DevOps Course",

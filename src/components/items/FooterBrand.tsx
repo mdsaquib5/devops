@@ -11,7 +11,7 @@ const FooterBrand = () => {
                 <Image src="/images/logo.webp" alt="Logo" width={256} height={50} />
             </Link>
             <p className="ft-tagline">
-                Pune&apos;s #1 DevOps training institute with 100% placement support, GenAI-powered labs & industry mentors.
+                India&apos;s #1 DevOps training institute with 100% placement support, GenAI-powered labs & industry mentors.
             </p>
             <div className="ft-socials">
                 {footerData.socialLinks.map((social, i) => (
