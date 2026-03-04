@@ -11,8 +11,8 @@ const Agreement = () => {
                 <div className="agreement-bg-glow agreement-bg-glow--br"></div>
                 <div className="container">
                     <SectionTitle
-                        title="Placement Support"
-                        highlight="Agreement"
+                        title="Placement"
+                        highlight="Support"
                         description="Simple, transparent, and built to support you all the
                             way to your first offer."
                     />
